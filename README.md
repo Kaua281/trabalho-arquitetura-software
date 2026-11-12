@@ -12,12 +12,18 @@ Este repositório reúne três aplicações Spring Boot independentes:
 - Maven
 
 ## Estrutura de pacotes
-config
-controller
-dto.response
-dto.request
-model
-repository
-service
-util
-exceptions
+- config
+- controller
+- dto.response
+- dto.request
+- model
+- repository
+- service
+- util
+- exceptions
+
+## Serviços e portas
+- 8081 - Estoque
+- 8082 - Produtos
+- 8083 - Vendas
+
