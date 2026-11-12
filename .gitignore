@@ -1,0 +1,32 @@
+# Eclipse workspace and project metadata
+.metadata/
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# Maven and build output
+**/target/
+**/build/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+nbproject/private/
+.nb-gradle/
+
+# Java and runtime output
+*.class
+*.log
+*.pid
+
+# Operating system files
+Thumbs.db
+.DS_Store
