@@ -11,3 +11,13 @@ Este repositório reúne três aplicações Spring Boot independentes:
 - Java 21
 - Maven
 
+## Estrutura de pacotes
+config
+controller
+dto.response
+dto.request
+model
+repository
+service
+util
+exceptions
