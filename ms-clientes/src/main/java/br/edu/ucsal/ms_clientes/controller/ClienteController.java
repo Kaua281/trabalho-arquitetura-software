@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +27,14 @@ public class ClienteController {
 		List<ClienteResponse> response = clientesList.stream()
 				.map(ClienteResponse::converterParaDTO)
 				.toList();
+		
+		return ResponseEntity.ok(response);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<ClienteResponse> listarPorId(@PathVariable Long id){
+		Cliente cliente = service.buscarPorId(id);
+		ClienteResponse response = ClienteResponse.converterParaDTO(cliente);
 		
 		return ResponseEntity.ok(response);
 	}
