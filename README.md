@@ -1,10 +1,11 @@
-# Serviços de produtos, estoque e vendas
+# Serviços de produtos, estoque, vendas e clientes
 
-Este repositório reúne três aplicações Spring Boot independentes:
+Este repositório reúne quatro aplicações Spring Boot independentes:
 
 - `ms-produtos`: serviço de produtos.
 - `ms-estoque`: serviço de estoque.
 - `ms-vendas`: serviço de vendas.
+- `ms-clientes`: serviço de clientes
 
 ## Requisitos
 
@@ -26,4 +27,5 @@ Este repositório reúne três aplicações Spring Boot independentes:
 - 8081 - Estoque
 - 8082 - Produtos
 - 8083 - Vendas
+- 8084 - Clientes
 
