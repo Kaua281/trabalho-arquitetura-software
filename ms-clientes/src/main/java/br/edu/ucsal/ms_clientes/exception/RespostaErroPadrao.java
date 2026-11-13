@@ -1,4 +1,4 @@
-package exception;
+package br.edu.ucsal.ms_clientes.exception;
 
 import java.time.Instant;
 
