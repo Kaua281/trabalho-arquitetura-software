@@ -23,6 +23,10 @@ public class ClienteService {
 		return repository.findById(id)
 				.orElseThrow(()-> new EntityNotFoundException("Cliente não localizado com o id " + id));
 	}
+
+	public void apagarPorId(Long id) {
+		repository.delete(buscarPorId(id));
+	}
 	
 
 }
