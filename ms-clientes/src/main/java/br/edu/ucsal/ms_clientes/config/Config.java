@@ -26,7 +26,6 @@ public class Config {
 			if (repository.count()==0) {
 				List<Cliente> clientes = new ArrayList<>(List.of(
 						new ClientePF(
-								null,
 								"ironman@starkindustries.com",
 								"555323232",
 								TipoCliente.PESSOA_FISICA,
@@ -36,7 +35,6 @@ public class Config {
 								LocalDate.of(1972, 12, 3)
 								),
 						new ClientePF(
-								null,
 								"nromanov@shield.com",
 								"555323111",
 								TipoCliente.PESSOA_FISICA,
@@ -46,7 +44,6 @@ public class Config {
 								LocalDate.of(1983,1,2)
 								),
 						new ClientePJ(
-								null,
 								"ceo@starkindustries.com",
 								"555323232",
 								TipoCliente.PESSOA_JURIDICA,

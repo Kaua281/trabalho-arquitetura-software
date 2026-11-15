@@ -34,4 +34,14 @@ public abstract class Cliente {
 	@Column
 	Instant dataCriado;
 
+	public Cliente(String email, String telefone, TipoCliente tipoCliente, Instant dataCriado) {
+		super();
+		this.email = email;
+		this.telefone = telefone;
+		this.tipoCliente = tipoCliente;
+		this.dataCriado = dataCriado;
+	}
+	
+	
+
 }

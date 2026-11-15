@@ -32,9 +32,9 @@ public class ClientePJ extends Cliente {
 	@Column(name = "insc_estadual", nullable = true, length = 14)
 	private String inscricaoEstadual;
 
-	public ClientePJ(Long id, String email, String telefone, TipoCliente tipo, Instant criadoEm,
+	public ClientePJ(String email, String telefone, TipoCliente tipo, Instant criadoEm,
 			String razaoSocial, String nomeFantasia, String CNPJ, String inscricaoEstadual) {
-		super(id, email, telefone, tipo, criadoEm);
+		super(email, telefone, tipo, criadoEm);
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
 		this.CNPJ = CNPJ;

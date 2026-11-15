@@ -31,9 +31,9 @@ public class ClientePF extends Cliente{
 	@Column(name = "data_nasc")
 	private LocalDate dataNascimento;
 
-	public ClientePF(Long id, String email, String telefone, TipoCliente tipo, Instant criadoEm,
+	public ClientePF(String email, String telefone, TipoCliente tipo, Instant criadoEm,
 			String nomeCompleto, String CPF, LocalDate dataNascimento) {
-		super(id, email, telefone, tipo, criadoEm);
+		super(email, telefone, tipo, criadoEm);
 		this.nomeCompleto = nomeCompleto;
 		this.CPF = CPF;
 		this.dataNascimento = dataNascimento;
