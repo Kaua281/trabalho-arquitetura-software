@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -15,16 +16,32 @@ public class CapturadorExcecoes {
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<RespostaErroPadrao> entidadeNaoEncontrada(EntityNotFoundException e, HttpServletRequest request){
-		HttpStatus status = HttpStatus.NOT_FOUND;
+		Integer status = HttpStatus.NOT_FOUND.value();
+		String msgErroPadrao = "Entidade não encontrada.";
 		
-		RespostaErroPadrao error = new RespostaErroPadrao(
-				Instant.now(),
-				status.value(),
-				"Entidade não encontrada",
-				e.getMessage(),
-				request.getRequestURI());
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, e.getMessage(), request.getRequestURI());
 		
 		return ResponseEntity.status(status).body(error);
 		
+	}
+	
+	@ExceptionHandler(EntityExistsException.class)
+	public ResponseEntity<RespostaErroPadrao> entidadeExistente(EntityExistsException e, HttpServletRequest request){
+		Integer status = HttpStatus.CONFLICT.value();
+		String msgErroPadrao = "Entidade duplicada.";
+		
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, e.getMessage(), request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(error);
+	}
+	
+	private RespostaErroPadrao formatarResposta(Integer status, String msgErroPadrao, String msgErroEspecifica, String endpoint) {	
+		return  new RespostaErroPadrao(
+				Instant.now(),
+				status,
+				msgErroPadrao,
+				msgErroEspecifica,
+				endpoint
+				);
 	}
 }
