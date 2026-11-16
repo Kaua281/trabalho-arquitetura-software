@@ -26,16 +26,16 @@ public class ClientePF extends Cliente{
 	private String nomeCompleto;
 	
 	@Column(nullable = false, unique = true)
-	private String CPF;
+	private String cpf;
 	
 	@Column(name = "data_nasc")
 	private LocalDate dataNascimento;
 
 	public ClientePF(String email, String telefone, TipoClienteEnum tipo, Instant criadoEm,
-			String nomeCompleto, String CPF, LocalDate dataNascimento) {
+			String nomeCompleto, String cpf, LocalDate dataNascimento) {
 		super(email, telefone, tipo, criadoEm);
 		this.nomeCompleto = nomeCompleto;
-		this.CPF = CPF;
+		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 	

@@ -43,11 +43,11 @@ public class ClienteService {
 	public Cliente criarNovoCliente(ClienteRequest request) {
 		Cliente novoCliente = ClienteFabrica.criarCliente(request);
 		
-		if(novoCliente instanceof ClientePF && pfRepository.existsByCPF(request.cpf())) {
+		if(novoCliente instanceof ClientePF && pfRepository.existsByCpf(request.cpf())) {
 				throw new EntityExistsException("CPF já cadastrado");
 			}
 		
-		if(novoCliente instanceof ClientePJ && pjRepository.existsByCNPJ(request.cnpj())) {
+		if(novoCliente instanceof ClientePJ && pjRepository.existsByCnpj(request.cnpj())) {
 				throw new EntityExistsException("CNPJ já cadastrado");
 			}
 

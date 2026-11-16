@@ -27,17 +27,17 @@ public class ClientePJ extends Cliente {
 	private String nomeFantasia;
 	
 	@Column(nullable = false, unique = true, length = 18)
-	private String CNPJ;
+	private String cnpj;
 	
 	@Column(name = "insc_estadual", nullable = true, length = 14)
 	private String inscricaoEstadual;
 
 	public ClientePJ(String email, String telefone, TipoClienteEnum tipo, Instant criadoEm,
-			String razaoSocial, String nomeFantasia, String CNPJ, String inscricaoEstadual) {
+			String razaoSocial, String nomeFantasia, String cnpj, String inscricaoEstadual) {
 		super(email, telefone, tipo, criadoEm);
 		this.razaoSocial = razaoSocial;
 		this.nomeFantasia = nomeFantasia;
-		this.CNPJ = CNPJ;
+		this.cnpj = cnpj;
 		this.inscricaoEstadual = inscricaoEstadual;
 	}
 	

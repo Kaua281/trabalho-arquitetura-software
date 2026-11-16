@@ -13,7 +13,7 @@ public record ClienteResponse(Long id, String nome, String email, String tipo, S
 					pf.getNomeCompleto(),
 					pf.getEmail(),
 					cliente.getTipoClienteEnum().name(),
-					pf.getCPF());
+					pf.getCpf());
 		}
 		if(cliente instanceof ClientePJ pj) {
 			return new ClienteResponse(
@@ -21,7 +21,7 @@ public record ClienteResponse(Long id, String nome, String email, String tipo, S
 					pj.getRazaoSocial(),
 					pj.getEmail(),
 					cliente.getTipoClienteEnum().name(),
-					pj.getCNPJ());
+					pj.getCnpj());
 		}
 		throw new IllegalArgumentException("Tipo de cliente desconhecido");
 	}
