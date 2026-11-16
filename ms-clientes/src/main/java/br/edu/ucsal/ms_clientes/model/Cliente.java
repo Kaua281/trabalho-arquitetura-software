@@ -2,7 +2,7 @@ package br.edu.ucsal.ms_clientes.model;
 
 import java.time.Instant;
 
-import br.edu.ucsal.ms_clientes.util.TipoCliente;
+import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,19 +29,18 @@ public abstract class Cliente {
 	
 	@Enumerated(EnumType.STRING)
 	@Column
-	TipoCliente tipoCliente;
+	TipoClienteEnum tipoClienteEnum;
 	
 	@Column
 	Instant dataCriado;
 
-	public Cliente(String email, String telefone, TipoCliente tipoCliente, Instant dataCriado) {
+	public Cliente(String email, String telefone, TipoClienteEnum tipoClienteEnum, Instant dataCriado) {
 		super();
 		this.email = email;
 		this.telefone = telefone;
-		this.tipoCliente = tipoCliente;
+		this.tipoClienteEnum = tipoClienteEnum;
 		this.dataCriado = dataCriado;
 	}
-	
 	
 
 }

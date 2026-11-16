@@ -3,7 +3,7 @@ package br.edu.ucsal.ms_clientes.model;
 import java.time.Instant;
 import java.time.LocalDate;
 
-import br.edu.ucsal.ms_clientes.util.TipoCliente;
+import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
@@ -31,7 +31,7 @@ public class ClientePF extends Cliente{
 	@Column(name = "data_nasc")
 	private LocalDate dataNascimento;
 
-	public ClientePF(String email, String telefone, TipoCliente tipo, Instant criadoEm,
+	public ClientePF(String email, String telefone, TipoClienteEnum tipo, Instant criadoEm,
 			String nomeCompleto, String CPF, LocalDate dataNascimento) {
 		super(email, telefone, tipo, criadoEm);
 		this.nomeCompleto = nomeCompleto;

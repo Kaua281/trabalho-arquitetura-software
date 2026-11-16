@@ -2,20 +2,20 @@ package br.edu.ucsal.ms_clientes.dto.request;
 
 import java.time.LocalDate;
 
-import br.edu.ucsal.ms_clientes.util.TipoCliente;
+import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 
 public record ClienteRequest(
-		TipoCliente tipo,
+		TipoClienteEnum tipo,
 		String email,
 		String telefone,
 		
 		String nomeCompleto,
-		String CPF,
+		String cpf,
 		LocalDate dataNascimento,
 		
 		String razaoSocial,
 		String nomeFantasia,
-		String CNPJ,
+		String cnpj,
 		String inscricaoEstadual
 		) {
 

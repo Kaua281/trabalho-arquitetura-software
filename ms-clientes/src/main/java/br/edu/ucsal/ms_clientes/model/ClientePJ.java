@@ -2,7 +2,7 @@ package br.edu.ucsal.ms_clientes.model;
 
 import java.time.Instant;
 
-import br.edu.ucsal.ms_clientes.util.TipoCliente;
+import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -32,7 +32,7 @@ public class ClientePJ extends Cliente {
 	@Column(name = "insc_estadual", nullable = true, length = 14)
 	private String inscricaoEstadual;
 
-	public ClientePJ(String email, String telefone, TipoCliente tipo, Instant criadoEm,
+	public ClientePJ(String email, String telefone, TipoClienteEnum tipo, Instant criadoEm,
 			String razaoSocial, String nomeFantasia, String CNPJ, String inscricaoEstadual) {
 		super(email, telefone, tipo, criadoEm);
 		this.razaoSocial = razaoSocial;
