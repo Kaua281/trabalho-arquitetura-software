@@ -1,10 +1,10 @@
-package br.edu.ucsal.ms_cliente;
+package br.edu.ucsal.ms_clientes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsClienteApplicationTests {
+class MsClientesApplicationTests {
 
 	@Test
 	void contextLoads() {
