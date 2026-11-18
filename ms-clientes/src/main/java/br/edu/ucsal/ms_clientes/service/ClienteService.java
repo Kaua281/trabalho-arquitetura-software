@@ -2,6 +2,7 @@ package br.edu.ucsal.ms_clientes.service;
 
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
@@ -52,5 +53,29 @@ public class ClienteService {
 			}
 
 		return repository.save(novoCliente);
+	}
+
+	public Cliente atualizaCliente(Long id, ClienteRequest request) {
+		Cliente cliente = buscarPorId(id);
+		
+		if(request.tipo() != null && request.tipo() != cliente.getTipoClienteEnum()) {
+			throw new IllegalArgumentException("Não é permitido alterar o tipo do cliente");
+		}
+		
+		
+		if(cliente instanceof ClientePF pf && 
+				request.cpf() != null  && 
+				!Objects.equals(request.cpf(),pf.getCpf())) {
+			throw new IllegalArgumentException("CPF não pode ser alterado");
+		}
+		
+		if(cliente instanceof ClientePJ pj && 
+				request.cnpj() != null &&
+				!Objects.equals(request.cnpj(), pj.getCnpj())) {
+			throw new IllegalArgumentException("CNPJ não pode ser alterado");
+		}
+		
+		cliente.atualizaDados(request);
+		return repository.save(cliente);
 	}
 }
