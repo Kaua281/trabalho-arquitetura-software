@@ -26,7 +26,7 @@ public class ClientePF extends Cliente{
 	@Column(name = "nome_completo", nullable = false, length = 150)
 	private String nomeCompleto;
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, updatable = false)
 	private String cpf;
 	
 	@Column(name = "data_nasc")

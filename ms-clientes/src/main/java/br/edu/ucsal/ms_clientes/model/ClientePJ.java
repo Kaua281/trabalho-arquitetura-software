@@ -27,7 +27,7 @@ public class ClientePJ extends Cliente {
 	@Column(name = "nome_fantasia", length = 150)
 	private String nomeFantasia;
 	
-	@Column(nullable = false, unique = true, length = 18)
+	@Column(nullable = false, unique = true, length = 18, updatable = false)
 	private String cnpj;
 	
 	@Column(name = "insc_estadual", nullable = true, length = 14)
