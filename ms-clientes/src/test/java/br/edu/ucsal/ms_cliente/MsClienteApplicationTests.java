@@ -1,10 +1,10 @@
-package br.edu.ucsal.ms_estoque;
+package br.edu.ucsal.ms_cliente;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsEstoqueApplicationTests {
+class MsClienteApplicationTests {
 
 	@Test
 	void contextLoads() {
