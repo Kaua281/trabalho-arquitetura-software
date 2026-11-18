@@ -2,6 +2,7 @@ package br.edu.ucsal.ms_clientes.model;
 
 import java.time.Instant;
 
+import br.edu.ucsal.ms_clientes.dto.request.ClienteRequest;
 import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,6 +40,12 @@ public class ClientePJ extends Cliente {
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;
 		this.inscricaoEstadual = inscricaoEstadual;
+	}
+
+	@Override
+	protected void atualizaDadosPorTipo(ClienteRequest request) {
+		this.razaoSocial = request.razaoSocial();
+		this.nomeFantasia = request.nomeFantasia();
 	}
 	
 
