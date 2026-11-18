@@ -40,7 +40,7 @@ public class ClienteController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<ClienteResponse> listarPorId(@PathVariable Long id){
+	public ResponseEntity<ClienteResponse> buscarPorId(@PathVariable Long id){
 		Cliente cliente = service.buscarPorId(id);
 		ClienteResponse response = ClienteResponse.converterParaDTO(cliente);
 
@@ -48,7 +48,7 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<ClienteResponse> apagarPorId(@PathVariable Long id){
+	public ResponseEntity<Void> apagarPorId(@PathVariable Long id){
 		service.apagarPorId(id);
 
 		return ResponseEntity.noContent().build();
