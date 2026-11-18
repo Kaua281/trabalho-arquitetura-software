@@ -2,6 +2,7 @@ package br.edu.ucsal.ms_clientes.model;
 
 import java.time.Instant;
 
+import br.edu.ucsal.ms_clientes.dto.request.ClienteRequest;
 import br.edu.ucsal.ms_clientes.util.TipoClienteEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,16 @@ public abstract class Cliente {
 		this.tipoClienteEnum = tipoClienteEnum;
 		this.dataCriado = dataCriado;
 	}
+	
+	public void atualizaDados(ClienteRequest request) {
+		this.email = request.email();
+		this.telefone = request.telefone();
+		
+		atualizaDadosPorTipo(request);
+	}
+
+	protected abstract void atualizaDadosPorTipo(ClienteRequest request);
+	
 	
 
 }
