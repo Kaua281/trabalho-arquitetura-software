@@ -44,4 +44,14 @@ public class CapturadorExcecoes {
 				endpoint
 				);
 	}
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<RespostaErroPadrao> argumentosInvalidos(IllegalArgumentException e, HttpServletRequest request){
+		Integer status = HttpStatus.BAD_REQUEST.value();
+		String msgErroPadrao = "Erro nos dados da requisição.";
+		
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, e.getMessage(), request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(error);
+	}
 }
