@@ -14,6 +14,16 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class CapturadorExcecoes {
 	
+	private RespostaErroPadrao formatarResposta(Integer status, String msgErroPadrao, String msgErroEspecifica, String endpoint) {	
+		return  new RespostaErroPadrao(
+				Instant.now(),
+				status,
+				msgErroPadrao,
+				msgErroEspecifica,
+				endpoint
+				);
+	}
+	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<RespostaErroPadrao> entidadeNaoEncontrada(EntityNotFoundException e, HttpServletRequest request){
 		Integer status = HttpStatus.NOT_FOUND.value();
@@ -35,22 +45,24 @@ public class CapturadorExcecoes {
 		return ResponseEntity.status(status).body(error);
 	}
 	
-	private RespostaErroPadrao formatarResposta(Integer status, String msgErroPadrao, String msgErroEspecifica, String endpoint) {	
-		return  new RespostaErroPadrao(
-				Instant.now(),
-				status,
-				msgErroPadrao,
-				msgErroEspecifica,
-				endpoint
-				);
-	}
-	
 	@ExceptionHandler(IllegalArgumentException.class)
 	public ResponseEntity<RespostaErroPadrao> argumentosInvalidos(IllegalArgumentException e, HttpServletRequest request){
 		Integer status = HttpStatus.BAD_REQUEST.value();
 		String msgErroPadrao = "Erro nos dados da requisição.";
 		
 		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, e.getMessage(), request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(error);
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<RespostaErroPadrao> erroInesperado(Exception e, HttpServletRequest request){
+		Integer status = HttpStatus.INTERNAL_SERVER_ERROR.value();
+		
+		String msgErroPadrao = "Erro interno.";
+		String msgErroEspecifica = "Ocorreu um erro inesperado. Tente novamente mais tarde.";
+		
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, msgErroEspecifica, request.getRequestURI());
 		
 		return ResponseEntity.status(status).body(error);
 	}
