@@ -8,6 +8,7 @@ import br.edu.ucsal.ms_produtos.dto.request.ProdutoRequestDTO;
 import br.edu.ucsal.ms_produtos.dto.response.ProdutoResponseDTO;
 import br.edu.ucsal.ms_produtos.model.Produto;
 import br.edu.ucsal.ms_produtos.repository.ProdutoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProdutoService {
@@ -36,7 +37,7 @@ public class ProdutoService {
 	
 	public ProdutoResponseDTO buscarPorId(Long id) {
 		
-		Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+		Produto produto = produtoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
 		
 		return converterParaResponse(produto);
 		
@@ -44,7 +45,7 @@ public class ProdutoService {
 	
 	public ProdutoResponseDTO atualizar(Long id, ProdutoRequestDTO dados) {
 		
-		Produto produto = produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+		Produto produto = produtoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
 		
 		produto.setNome(dados.nome());
 		produto.setDescricao(dados.descricao());
@@ -58,7 +59,7 @@ public class ProdutoService {
 	
 	public void deletar(Long id) {
 		if(!produtoRepository.existsById(id)) {
-			throw new RuntimeException("Produto não encontrado");
+			throw new EntityNotFoundException("Produto não encontrado");
 		}
 		
 		produtoRepository.deleteById(id);
