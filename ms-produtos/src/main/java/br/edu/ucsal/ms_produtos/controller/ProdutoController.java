@@ -19,7 +19,7 @@ import br.edu.ucsal.ms_produtos.service.ProdutoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/api/produtos")
 public class ProdutoController {
 	private final ProdutoService produtoService;
 
