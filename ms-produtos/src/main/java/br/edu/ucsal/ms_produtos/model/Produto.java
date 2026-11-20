@@ -28,9 +28,8 @@ public class Produto {
 	@Column(precision = 12, scale = 2)
 	private BigDecimal preco;
 	
-	public Produto(Long id, String nome, String descricao, BigDecimal preco) {
+	public Produto(String nome, String descricao, BigDecimal preco) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
