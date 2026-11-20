@@ -1,9 +1,11 @@
 package br.edu.ucsal.ms_produtos.exception;
 
 import java.time.Instant;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -54,6 +56,25 @@ public class CapturadorExcecoes {
 		
 		return ResponseEntity.status(status).body(error);
 	}
+	
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<RespostaErroPadrao> errosValidacao(MethodArgumentNotValidException e, HttpServletRequest request){
+		Integer status = HttpStatus.BAD_REQUEST.value();
+		String msgErroPadrao = "Erro nos dados da requisição.";
+		
+		// Obtém os campos inválidos identificados pelo @Valid nos parâmetros de alguns métodos do controller e concatena suas respectivas mensagens de erro
+		String msgErroEspecifica = e.getBindingResult()
+		            .getFieldErrors()
+		            .stream()
+		            .map(erro -> erro.getField() + ": " + erro.getDefaultMessage())
+		            .collect(Collectors.joining("; "));
+		
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, msgErroEspecifica, request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(error);
+	}
+	
+	
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<RespostaErroPadrao> erroInesperado(Exception e, HttpServletRequest request){
