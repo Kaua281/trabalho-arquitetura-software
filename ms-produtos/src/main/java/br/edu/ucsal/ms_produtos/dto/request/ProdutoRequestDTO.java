@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Size;
 
 public record ProdutoRequestDTO(
 		@NotBlank
-		@Size(max = 150)
+		@Size(max = 255)
 		String nome,
 		
 		@Size(max = 255)
