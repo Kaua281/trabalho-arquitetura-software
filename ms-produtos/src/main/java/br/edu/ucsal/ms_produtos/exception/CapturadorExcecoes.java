@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -68,6 +69,17 @@ public class CapturadorExcecoes {
 		            .stream()
 		            .map(erro -> erro.getField() + ": " + erro.getDefaultMessage())
 		            .collect(Collectors.joining("; "));
+		
+		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, msgErroEspecifica, request.getRequestURI());
+		
+		return ResponseEntity.status(status).body(error);
+	}
+	
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<RespostaErroPadrao> jsonInvalido(HttpMessageNotReadableException e, HttpServletRequest request){
+		Integer status = HttpStatus.BAD_REQUEST.value();
+		String msgErroPadrao = "Corpo da requisição inválido ou malformado.";
+		String msgErroEspecifica = "Verifique a estrutura e os tipos dos dados enviados no JSON.";
 		
 		RespostaErroPadrao error = formatarResposta(status, msgErroPadrao, msgErroEspecifica, request.getRequestURI());
 		
