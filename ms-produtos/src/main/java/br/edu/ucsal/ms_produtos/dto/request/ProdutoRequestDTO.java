@@ -13,7 +13,7 @@ public record ProdutoRequestDTO(
 		@Size(max = 150)
 		String nome,
 		
-		@Size(max = 500)
+		@Size(max = 255)
 		String descricao,
 		
 		@NotNull
