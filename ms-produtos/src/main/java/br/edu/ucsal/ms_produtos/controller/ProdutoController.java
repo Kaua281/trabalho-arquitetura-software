@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ucsal.ms_produtos.dto.request.ProdutoRequestDTO;
 import br.edu.ucsal.ms_produtos.dto.response.ProdutoResponseDTO;
 import br.edu.ucsal.ms_produtos.service.ProdutoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/produtos")
@@ -28,7 +29,7 @@ public class ProdutoController {
 	
 	
 	@PostMapping
-	public ResponseEntity<ProdutoResponseDTO> cadastrar(@RequestBody ProdutoRequestDTO dados) {
+	public ResponseEntity<ProdutoResponseDTO> cadastrar(@RequestBody @Valid ProdutoRequestDTO dados) {
 		ProdutoResponseDTO produto = produtoService.cadastrar(dados);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(produto);
@@ -49,7 +50,7 @@ public class ProdutoController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<ProdutoResponseDTO> atualizar(@PathVariable Long id, @RequestBody ProdutoRequestDTO dados) {
+	public ResponseEntity<ProdutoResponseDTO> atualizar(@PathVariable Long id, @RequestBody @Valid ProdutoRequestDTO dados) {
 		ProdutoResponseDTO produto = produtoService.atualizar(id, dados);
 		return ResponseEntity.status(HttpStatus.OK).body(produto);
 
