@@ -1,31 +1,71 @@
-# Serviços de produtos, estoque, vendas e clientes
+# Sistema de Vendas com Microsserviços
 
-Este repositório reúne quatro aplicações Spring Boot independentes:
+Repositório acadêmico com quatro aplicações Spring Boot independentes para os domínios de clientes, produtos, estoque e vendas. Cada serviço tem sua própria configuração, porta e banco H2.
 
-- `ms-produtos`: serviço de produtos.
-- `ms-estoque`: serviço de estoque.
-- `ms-vendas`: serviço de vendas.
-- `ms-clientes`: serviço de clientes
+## Microsserviços
 
-## Requisitos
+| Serviço | Porta | API disponível | Estado atual | Documentação do Microsserviço |
+| --- | ---: | --- | --- | --- |
+| [`ms-clientes`](./ms-clientes) | `8084` | `/api/clientes` | CRUD de clientes pessoa física e jurídica. | [README de clientes](./ms-clientes/README.md) |
+| [`ms-produtos`](./ms-produtos) | `8082` | `/api/produtos` | CRUD de produtos com validação de entrada. | [README de produtos](./ms-produtos/README.md) |
+| [`ms-estoque`](./ms-estoque) | `8081` | — | Aplicação e entidade inicial; ainda sem API de estoque. | [README de estoque](./ms-estoque/README.md) |
+| [`ms-vendas`](./ms-vendas) | `8083` | — | Aplicação e entidade inicial; ainda sem API para registrar vendas. | [README de vendas](./ms-vendas/README.md) |
+
+## Tecnologias
 
 - Java 21
-- Maven
+- Spring Boot 4.1.2
+- Spring Web MVC
+- Spring Data JPA
+- H2
+- Maven (cada serviço tem seu próprio `pom.xml` e Maven Wrapper)
+- Springdoc OpenAPI
 
-## Estrutura de pacotes
-- config
-- controller
-- dto.response
-- dto.request
-- model
-- repository
-- service
-- util
-- exceptions
+## Executar
 
-## Serviços e portas
-- 8081 - Estoque
-- 8082 - Produtos
-- 8083 - Vendas
-- 8084 - Clientes
+É necessário ter Java 21 instalado. Cada serviço pode ser iniciado separadamente, em um terminal próprio. No PowerShell, a partir da raiz do repositório, por exemplo:
 
+```powershell
+cd ms-produtos
+.\mvnw.cmd spring-boot:run
+```
+
+Para iniciar outro serviço, use sua pasta (`ms-clientes`, `ms-estoque` ou `ms-vendas`) em outro terminal. Também é possível executar `mvn spring-boot:run` se o Maven estiver instalado.
+
+## Persistência e dados de demonstração
+
+Os serviços estão configurados com bancos H2 em memória, cada um com sua própria URL:
+
+| Serviço | URL JDBC |
+| --- | --- |
+| Clientes | `jdbc:h2:mem:cliente` |
+| Produtos | `jdbc:h2:mem:produtos` |
+| Estoque | `jdbc:h2:mem:estoque` |
+| Vendas | `jdbc:h2:mem:vendas` |
+
+Clientes e produtos carregam dados de demonstração quando seus bancos estão vazios. Como os bancos são em memória, os dados são recriados ao iniciar o serviço e não sobrevivem ao encerramento do processo.
+
+O console H2 está habilitado em `/h2-console` nos serviços. Para acessá-lo, informe a URL JDBC correspondente, usuário `sa` e senha em branco.
+
+## Organização
+
+Cada diretório `ms-*` é um projeto Maven separado. Nos serviços com CRUD implementado, o código segue camadas:
+
+- `controller`: endpoints HTTP;
+- `service`: operações do serviço e regras de negócio;
+- `repository`: persistência via Spring Data JPA;
+- `model`: entidades;
+- `dto.request` e `dto.response`: contratos de entrada e saída;
+- `exception`: respostas padronizadas de erro.
+
+## Arquitetura e fluxo planejado
+
+Os diagramas abaixo ilustram a arquitetura e o fluxo de venda pretendidos:
+
+### Diagrama de arquitetura
+
+![Diagrama de arquitetura dos microsserviços](./docs/arquitetura-light.png)
+
+### Fluxo de venda
+
+![Diagrama do fluxo de venda](./docs/fluxo-venda-light.png)
