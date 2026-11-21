@@ -1,0 +1,305 @@
+{
+  "info": {
+    "_postman_id": "e1b1baa0-3d3e-4d48-96ef-4b9b050ce4eb",
+    "name": "ARQ - Microsserviços",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41970663"
+  },
+  "item": [
+    {
+      "name": "ms-produtos",
+      "item": [
+        {
+          "name": "Cadastrar produto",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nome\": \"Arco do Gavião Arqueiro\",\r\n    \"descricao\": \"Arco do Gavião Arqueiro\",\r\n    \"preco\": 299.90\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlProdutos}}/api/produtos",
+              "host": [
+                "{{baseUrlProdutos}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlProdutos}}/api/produtos",
+              "host": [
+                "{{baseUrlProdutos}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlProdutos}}/api/produtos/7",
+              "host": [
+                "{{baseUrlProdutos}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar produto",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"id\": 1,\r\n        \"nome\": \"Armadura Mark LXXXV\",\r\n        \"descricao\": \"Armadura de nanotecnologia desenvolvida por Tony Stark.\",\r\n        \"preco\": 18500000.00\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlProdutos}}/api/produtos/1",
+              "host": [
+                "{{baseUrlProdutos}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir produto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlProdutos}}/api/produtos/3",
+              "host": [
+                "{{baseUrlProdutos}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ms-clientes",
+      "item": [
+        {
+          "name": "Cadastro de pessoa física",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tipo\": \"PESSOA_FISICA\",\r\n    \"email\": \"peter.parker@marvel.com\",\r\n    \"telefone\": \"71999999999\",\r\n    \"nomeCompleto\": \"Peter Parker\",\r\n    \"cpf\": \"98765432100\",\r\n    \"dataNascimento\": \"2001-08-10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cadastro de pessoa jurídica",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tipo\": \"PESSOA_JURIDICA\",\r\n    \"email\": \"contato@avengers.com\",\r\n    \"telefone\": \"71333333333\",\r\n    \"razaoSocial\": \"Avengers Incorporated\",\r\n    \"nomeFantasia\": \"Avengers\",\r\n    \"cnpj\": \"12345678000199\",\r\n    \"inscricaoEstadual\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes/4",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar cliente Pessoa Fisica",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tipo\": \"PESSOA_FISICA\",\r\n    \"email\": \"peter.parker@marvel.com\",\r\n    \"telefone\": \"71988888888\",\r\n    \"nomeCompleto\": \"Peter Benjamin Parker\",\r\n    \"cpf\": \"98765432100\",\r\n    \"dataNascimento\": \"2001-08-10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes/4",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar cliente Pessoa jurídica",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"tipo\": \"PESSOA_JURIDICA\",\r\n    \"email\": \"contato@newavengers.com\",\r\n    \"telefone\": \"71988887777\",\r\n    \"razaoSocial\": \"New Avengers Corporation\",\r\n    \"nomeFantasia\": \"New Avengers\",\r\n    \"cnpj\": \"12345678000199\",\r\n    \"inscricaoEstadual\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes/5",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlClientes}}/api/clientes/4",
+              "host": [
+                "{{baseUrlClientes}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ms-estoque",
+      "item": []
+    },
+    {
+      "name": "ms-vendas",
+      "item": []
+    }
+  ]
+}

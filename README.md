@@ -11,6 +11,12 @@ Repositório acadêmico com quatro aplicações Spring Boot independentes para o
 | [`ms-estoque`](./ms-estoque) | `8081` | — | Aplicação e entidade inicial; ainda sem API de estoque. | [README de estoque](./ms-estoque/README.md) |
 | [`ms-vendas`](./ms-vendas) | `8083` | — | Aplicação e entidade inicial; ainda sem API para registrar vendas. | [README de vendas](./ms-vendas/README.md) |
 
+## Coleção do Postman
+
+A coleção pode ser importada no Postman para executar cada requisição para verificar as operações disponíveis nos microsserviços
+
+[Microsservicos-Testes.postman_collection.json](./docs/ARQ%20-%20Microsserviços.postman_collection.json)
+
 ## Tecnologias
 
 - Java 21
