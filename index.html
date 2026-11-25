@@ -251,11 +251,11 @@
         <article class="card">
             <div class="card-header">
                 <div class="service-title">
-                    <span>ms-produtos</span>
+                    <span>ms-estoques</span>
                     <span class="port-badge">:8081</span>
                 </div>
                 <div class="jdbc-info">
-                    JDBC: jdbc:h2:mem:produtos_db
+                    JDBC: jdbc:h2:mem:estoque
                 </div>
             </div>
             <div class="actions">
@@ -273,10 +273,31 @@
             <div class="card-header">
                 <div class="service-title">
                     <span>ms-clientes</span>
+                    <span class="port-badge">:8084</span>
+                </div>
+                <div class="jdbc-info">
+                    JDBC: jdbc:h2:mem:cliente
+                </div>
+            </div>
+            <div class="actions">
+                <a href="http://localhost:8084/swagger-ui/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-swagger">
+                    Abrir Swagger UI
+                </a>
+                <a href="http://localhost:8084/h2-console" target="_blank" rel="noopener noreferrer" class="btn btn-h2">
+                    Abrir H2 Console
+                </a>
+            </div>
+        </article>
+
+        <!-- ms-estoque -->
+        <article class="card">
+            <div class="card-header">
+                <div class="service-title">
+                    <span>ms-produto</span>
                     <span class="port-badge">:8082</span>
                 </div>
                 <div class="jdbc-info">
-                    JDBC: jdbc:h2:mem:clientes_db
+                    JDBC: jdbc:h2:mem:produto
                 </div>
             </div>
             <div class="actions">
@@ -289,15 +310,15 @@
             </div>
         </article>
 
-        <!-- ms-estoque -->
+        <!-- ms-vendas -->
         <article class="card">
             <div class="card-header">
                 <div class="service-title">
-                    <span>ms-estoque</span>
+                    <span>ms-vendas</span>
                     <span class="port-badge">:8083</span>
                 </div>
                 <div class="jdbc-info">
-                    JDBC: jdbc:h2:mem:estoque_db
+                    JDBC: jdbc:h2:mem:vendas
                 </div>
             </div>
             <div class="actions">
@@ -305,27 +326,6 @@
                     Abrir Swagger UI
                 </a>
                 <a href="http://localhost:8083/h2-console" target="_blank" rel="noopener noreferrer" class="btn btn-h2">
-                    Abrir H2 Console
-                </a>
-            </div>
-        </article>
-
-        <!-- ms-vendas -->
-        <article class="card">
-            <div class="card-header">
-                <div class="service-title">
-                    <span>ms-vendas</span>
-                    <span class="port-badge">:8084</span>
-                </div>
-                <div class="jdbc-info">
-                    JDBC: jdbc:h2:mem:vendas_db
-                </div>
-            </div>
-            <div class="actions">
-                <a href="http://localhost:8084/swagger-ui/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-swagger">
-                    Abrir Swagger UI
-                </a>
-                <a href="http://localhost:8084/h2-console" target="_blank" rel="noopener noreferrer" class="btn btn-h2">
                     Abrir H2 Console
                 </a>
             </div>
