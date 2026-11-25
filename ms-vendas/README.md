@@ -50,7 +50,7 @@ Os endereços ficam em `application.properties`:
 | --- | --- |
 | `servicos.clientes.url` | `http://localhost:8084/api/clientes` |
 | `servicos.produtos.url` | `http://localhost:8082/api/produtos` |
-| `servicos.estoque.url` | `http://localhost:8081/api/estoque` |
+| `servicos.estoque.url` | `http://localhost:8081/estoque` |
 
 Chamadas realizadas pelo serviço de Vendas:
 
@@ -58,14 +58,14 @@ Chamadas realizadas pelo serviço de Vendas:
 | --- | --- | --- |
 | Clientes | `GET /api/clientes/{id}` | Verificar se o cliente existe. |
 | Produtos | `GET /api/produtos/{id}` | Verificar se o produto existe e obter o preço atual. |
-| Estoque | `POST /api/estoque/saidas` | Solicitar a baixa da quantidade vendida. O Estoque verifica o saldo e responde `409` se for insuficiente. |
-| Estoque | `POST /api/estoque/entradas` | Compensação: devolve a quantidade caso a venda não consiga ser gravada após a baixa. |
+| Estoque | `POST /estoque/saidas` | Solicitar a baixa da quantidade vendida. O Estoque verifica o saldo e responde `409` se for insuficiente ou `404` se o produto não tiver estoque cadastrado. |
+| Estoque | `POST /estoque/entradas` | Compensação: devolve a quantidade caso a venda não consiga ser gravada após a baixa. |
 
 Corpo enviado ao Estoque (saídas e entradas):
 
 ```json
 {
-  "idProduto": 3,
+  "produtoId": 3,
   "quantidade": 2
 }
 ```
