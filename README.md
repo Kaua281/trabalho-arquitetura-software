@@ -138,6 +138,10 @@ Cada serviço mantém seu próprio banco de dados e suas próprias transações.
 
 Caso ocorra uma falha ao salvar a venda depois da baixa no estoque, o serviço de Vendas tenta realizar uma operação compensatória de entrada para devolver as unidades retiradas.
 
+### Diagrama de classes
+
+![Diagrama de classes dos microsserviços](./docs/class-diagram.png)
+
 ### Diagrama de arquitetura
 
 ![Diagrama de arquitetura dos microsserviços](./docs/arquitetura-light.png)
