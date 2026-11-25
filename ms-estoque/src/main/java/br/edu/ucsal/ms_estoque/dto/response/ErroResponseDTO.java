@@ -1,4 +1,4 @@
-package br.edu.ucsal.ms_estoque.dto;
+package br.edu.ucsal.ms_estoque.dto.response;
 
 import java.time.LocalDateTime;
 

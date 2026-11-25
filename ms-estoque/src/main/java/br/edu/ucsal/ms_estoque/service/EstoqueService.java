@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ucsal.ms_estoque.dto.request.EstoqueRequestDTO;
-import br.edu.ucsal.ms_estoque.dto.EstoqueResponseDTO;
+import br.edu.ucsal.ms_estoque.dto.response.EstoqueResponseDTO;
 import br.edu.ucsal.ms_estoque.dto.request.MovimentacaoRequestDTO;
 import br.edu.ucsal.ms_estoque.exception.EstoqueDuplicadoException;
 import br.edu.ucsal.ms_estoque.exception.EstoqueInsuficienteException;

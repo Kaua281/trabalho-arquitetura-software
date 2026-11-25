@@ -1,7 +1,7 @@
 package br.edu.ucsal.ms_estoque.util;
 
 import br.edu.ucsal.ms_estoque.dto.request.EstoqueRequestDTO;
-import br.edu.ucsal.ms_estoque.dto.EstoqueResponseDTO;
+import br.edu.ucsal.ms_estoque.dto.response.EstoqueResponseDTO;
 import br.edu.ucsal.ms_estoque.model.Estoque;
 
 public class EstoqueMapper {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ucsal.ms_estoque.dto.request.EstoqueRequestDTO;
-import br.edu.ucsal.ms_estoque.dto.EstoqueResponseDTO;
+import br.edu.ucsal.ms_estoque.dto.response.EstoqueResponseDTO;
 import br.edu.ucsal.ms_estoque.dto.request.MovimentacaoRequestDTO;
 import br.edu.ucsal.ms_estoque.service.EstoqueService;
 import jakarta.validation.Valid;
