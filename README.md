@@ -4,6 +4,10 @@ Repositório acadêmico desenvolvido com quatro aplicações Spring Boot indepen
 
 Cada microsserviço possui sua própria configuração, porta, banco de dados H2 e responsabilidades específicas. A comunicação entre os serviços ocorre por meio de APIs REST.
 
+## Git Page
+
+[Acesse aqui a git page do projeto](https://kaua281.github.io/trabalho-arquitetura-software/)
+
 ## Microsserviços
 
 | Serviço | Porta | API disponível | Responsabilidade | Documentação |
